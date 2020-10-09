@@ -22,6 +22,7 @@ export default function App() {
      }), 1000);
 
   }
+
   function stopTimer() {
     if(intervalRef.current === null) return;
     clearInterval(intervalRef.current);
@@ -29,6 +30,7 @@ export default function App() {
     setTitle('Keep it up!');
     setIsRunning(false);
   }
+
   function resetTimer() {
     clearInterval(intervalRef.current);
     intervalRef.current = null;
@@ -39,6 +41,7 @@ export default function App() {
 
   const minutes = padTime(Math.floor(timeLeft/60));
   const seconds = padTime(timeLeft - minutes * 60);
+
   return (
     <div className="app">
       <h2>{title}</h2>
@@ -48,7 +51,6 @@ export default function App() {
         <span>:</span>
         <span>{seconds}</span>
       </div>
-
       <div className="buttons">
         {!isRunning && <button onClick={startTimer}>Start</button>}
         {isRunning && <button onClick={stopTimer}>Stop</button>}
